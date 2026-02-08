@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>0x3C - Tech, in 60 seconds</title>
+    <meta name="description" content="0x3C is an open-source, card-based micro-learning app for engineers. Each concept in under 60 seconds." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">0x3C</span>
+          <span class="brand-tag">Tech, in 60 seconds.</span>
+        </div>
+        <div class="status" id="status">Loading cards...</div>
+      </header>
+
+      <section class="stage" aria-live="polite">
+        <div class="card" id="card" tabindex="0" aria-label="Learning card">
+          <div class="card-header">
+            <div class="pill" id="category">Category</div>
+            <div class="difficulty" id="difficulty">Beginner</div>
+          </div>
+          <h1 class="title" id="title">Title</h1>
+          <div class="divider"></div>
+          <ul class="points" id="content"></ul>
+          <footer class="card-footer">
+            <span class="time" id="time">Time 0s</span>
+            <span class="source" id="source">Source</span>
+          </footer>
+          <div class="timebar" aria-hidden="true">
+            <span class="timebar-fill" id="timebar"></span>
+          </div>
+        </div>
+        <div class="hint" id="hint">Swipe or use the arrows to navigate</div>
+      </section>
+
+      <nav class="controls">
+        <button class="nav-btn" id="prevBtn" type="button">Prev</button>
+        <div class="progress" id="progress">0 / 0</div>
+        <button class="nav-btn" id="nextBtn" type="button">Next</button>
+      </nav>
+
+      <section class="error" id="error" hidden>
+        <h2>Content Error</h2>
+        <p id="errorMessage">Unable to load cards.</p>
+        <p class="error-hint">Tip: pass a JSON URL via <code>?src=https://raw.githubusercontent.com/...</code></p>
+      </section>
+    </main>
+
+    <script src="src/app.js" type="module"></script>
+  </body>
+</html>

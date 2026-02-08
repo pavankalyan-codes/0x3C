@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tcp-vs-udp",
+    "title": "TCP vs UDP",
+    "category": "Networking",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "TCP is connection-oriented and reliable",
+      "UDP is connectionless and lower latency",
+      "TCP guarantees delivery and order; UDP does not",
+      "TCP uses flow and congestion control; UDP leaves it to the app"
+    ],
+    "tags": ["tcp", "udp", "protocols"],
+    "source": "RFC 793"
+  },
+  {
+    "id": "ipv6-basics",
+    "title": "IPv6 Basics",
+    "category": "Networking",
+    "difficulty": "Beginner",
+    "readTimeSec": 50,
+    "content": [
+      "IPv6 uses 128-bit addresses for a vastly larger space",
+      "Notation is eight groups of hexadecimal, with compression rules",
+      "Stateless Address Autoconfiguration (SLAAC) can assign addresses",
+      "Built-in support for multicast replaces IPv4 broadcast"
+    ],
+    "tags": ["ipv6", "addressing", "slaac"],
+    "source": "RFC 8200"
+  },
+  {
+    "id": "round-robin",
+    "title": "Round Robin Scheduling",
+    "category": "OS",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Each task gets a fixed time slice in a rotating order",
+      "Prevents starvation by guaranteeing CPU time",
+      "Short time slices improve responsiveness but add overhead",
+      "Common in time-sharing systems and simple schedulers"
+    ],
+    "tags": ["scheduling", "os"],
+    "source": "Operating Systems: Three Easy Pieces"
+  },
+  {
+    "id": "load-balancing",
+    "title": "Load Balancing 101",
+    "category": "System Design",
+    "difficulty": "Beginner",
+    "readTimeSec": 55,
+    "content": [
+      "Distributes traffic across servers to improve reliability",
+      "Health checks remove unhealthy instances from rotation",
+      "Strategies include round robin, least connections, and hash",
+      "Can be implemented at L4 or L7 depending on needs"
+    ],
+    "tags": ["load-balancing", "scaling"],
+    "source": "Nginx Docs"
+  }
+]
