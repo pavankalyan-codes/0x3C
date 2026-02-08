@@ -33,7 +33,7 @@ const maxRotate = 14;
 
 const getSourceUrl = () => {
   const params = new URLSearchParams(window.location.search);
-  return params.get("src") || "content/networking.json";
+  return params.get("src") || "content/content.json";
 };
 
 const isCardValid = (card, seenIds) => {

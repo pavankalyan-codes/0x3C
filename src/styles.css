@@ -168,7 +168,12 @@ body::before {
 }
 
 .points li::before {
-  content: "?";
+  content: "bolt";
+  font-family: "Material Symbols Outlined";
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
   color: var(--accent-2);
 }
 
