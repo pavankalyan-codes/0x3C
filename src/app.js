@@ -19,6 +19,17 @@ let isAnimating = false;
 let timerId = null;
 let timerDuration = 0;
 let timerEnd = 0;
+let swipe = {
+  active: false,
+  startX: 0,
+  startY: 0,
+  deltaX: 0,
+  deltaY: 0,
+  rafId: 0,
+  pointerId: null,
+};
+const swipeThreshold = 90;
+const maxRotate = 14;
 
 const getSourceUrl = () => {
   const params = new URLSearchParams(window.location.search);
@@ -115,6 +126,30 @@ const animateTo = (nextIndex) => {
   }, 220);
 };
 
+const setCardTransform = (x, y, rotation) => {
+  cardEl.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
+};
+
+const resetCardTransform = () => {
+  cardEl.style.transform = "translate3d(0, 0, 0)";
+};
+
+const swipeOut = (direction) => {
+  const endX = direction * (window.innerWidth * 0.6);
+  const rotation = direction * maxRotate;
+  cardEl.style.transition = "transform 220ms ease";
+  setCardTransform(endX, 0, rotation);
+  window.setTimeout(() => {
+    cardEl.style.transition = "";
+    resetCardTransform();
+    if (direction > 0) {
+      prevCard();
+    } else {
+      nextCard();
+    }
+  }, 220);
+};
+
 const nextCard = () => {
   if (cards.length === 0) return;
   const nextIndex = (index + 1) % cards.length;
@@ -136,24 +171,53 @@ const attachEvents = () => {
     if (event.key === "ArrowLeft") prevCard();
   });
 
-  let startX = 0;
-  let active = false;
+  const updateDrag = () => {
+    const x = swipe.deltaX;
+    const y = swipe.deltaY * 0.25;
+    const rotate = (x / window.innerWidth) * maxRotate;
+    setCardTransform(x, y, rotate);
+    swipe.rafId = 0;
+  };
 
   cardEl.addEventListener("pointerdown", (event) => {
-    startX = event.clientX;
-    active = true;
+    if (isAnimating) return;
+    swipe.active = true;
+    swipe.startX = event.clientX;
+    swipe.startY = event.clientY;
+    swipe.deltaX = 0;
+    swipe.deltaY = 0;
+    swipe.pointerId = event.pointerId;
     cardEl.setPointerCapture(event.pointerId);
+    cardEl.classList.add("is-dragging");
   });
 
-  cardEl.addEventListener("pointerup", (event) => {
-    if (!active) return;
-    const delta = event.clientX - startX;
-    active = false;
-    if (Math.abs(delta) > 60) {
-      if (delta < 0) nextCard();
-      if (delta > 0) prevCard();
+  cardEl.addEventListener("pointermove", (event) => {
+    if (!swipe.active || swipe.pointerId !== event.pointerId) return;
+    swipe.deltaX = event.clientX - swipe.startX;
+    swipe.deltaY = event.clientY - swipe.startY;
+    if (!swipe.rafId) {
+      swipe.rafId = window.requestAnimationFrame(updateDrag);
     }
   });
+
+  const endSwipe = () => {
+    if (!swipe.active) return;
+    swipe.active = false;
+    cardEl.classList.remove("is-dragging");
+    if (Math.abs(swipe.deltaX) > swipeThreshold) {
+      swipeOut(swipe.deltaX > 0 ? 1 : -1);
+    } else {
+      cardEl.style.transition = "transform 200ms ease";
+      resetCardTransform();
+      window.setTimeout(() => {
+        cardEl.style.transition = "";
+      }, 200);
+    }
+    swipe.pointerId = null;
+  };
+
+  cardEl.addEventListener("pointerup", endSwipe);
+  cardEl.addEventListener("pointercancel", endSwipe);
 };
 
 const loadCards = async () => {

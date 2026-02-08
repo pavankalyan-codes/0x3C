@@ -99,13 +99,21 @@ body::before {
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   position: relative;
-  transform: translateY(0);
-  transition: transform 300ms ease, opacity 300ms ease, border-color 300ms ease;
+  transform: translate3d(0, 0, 0);
+  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 280ms ease,
+    border-color 300ms ease;
+  will-change: transform;
+  touch-action: pan-y;
 }
 
 .card.is-exit {
   opacity: 0;
   transform: translateY(12px);
+}
+
+.card.is-dragging {
+  transition: none;
+  cursor: grabbing;
 }
 
 .card-header {
