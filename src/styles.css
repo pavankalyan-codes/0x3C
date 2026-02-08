@@ -25,6 +25,7 @@ body {
     linear-gradient(160deg, var(--bg) 10%, var(--bg-2) 100%);
   color: var(--text);
   min-height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +89,47 @@ body::before {
   gap: 16px;
   align-items: center;
   justify-items: center;
+  position: relative;
+}
+
+.deck {
+  position: relative;
+  width: min(900px, 100%);
+  min-height: 520px;
+  display: block;
+}
+
+.deck-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+  transition: transform 300ms ease-out, opacity 280ms ease;
+}
+
+.card.deck-card {
+  position: absolute;
+}
+
+.deck-card:not(:first-child) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.deck.show-stack .deck-card:not(:first-child) {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.deck-card.dragging {
+  transition: none;
+  cursor: grabbing;
 }
 
 .card {
@@ -115,6 +157,7 @@ body::before {
   transition: none;
   cursor: grabbing;
 }
+
 
 .card-header {
   display: flex;

@@ -1,11 +1,4 @@
-﻿const cardEl = document.getElementById("card");
-const titleEl = document.getElementById("title");
-const contentEl = document.getElementById("content");
-const categoryEl = document.getElementById("category");
-const difficultyEl = document.getElementById("difficulty");
-const timeEl = document.getElementById("time");
-const timebarEl = document.getElementById("timebar");
-const sourceEl = document.getElementById("source");
+﻿const deckEl = document.getElementById("deck");
 const statusEl = document.getElementById("status");
 const progressEl = document.getElementById("progress");
 const errorBox = document.getElementById("error");
@@ -15,21 +8,18 @@ const nextBtn = document.getElementById("nextBtn");
 
 let cards = [];
 let index = 0;
-let isAnimating = false;
 let timerId = null;
-let timerDuration = 0;
 let timerEnd = 0;
-let swipe = {
-  active: false,
-  startX: 0,
-  startY: 0,
-  deltaX: 0,
-  deltaY: 0,
-  rafId: 0,
-  pointerId: null,
-};
-const swipeThreshold = 90;
-const maxRotate = 14;
+let activeCard = null;
+let startX = 0;
+let startY = 0;
+let moveX = 0;
+let moveY = 0;
+let stackDirection = 1;
+let isButtonAnimating = false;
+
+const stackSize = 3;
+const swipeThreshold = 120;
 
 const getSourceUrl = () => {
   const params = new URLSearchParams(window.location.search);
@@ -59,7 +49,6 @@ const setStatus = (text) => {
 const setError = (message) => {
   errorMessage.textContent = message;
   errorBox.hidden = false;
-  cardEl.setAttribute("aria-hidden", "true");
 };
 
 const stopTimer = () => {
@@ -69,21 +58,23 @@ const stopTimer = () => {
   }
 };
 
-const startTimer = (seconds) => {
+const startTimer = (cardEl) => {
   stopTimer();
-  timerDuration = Math.max(1, Math.round(seconds));
-  timerEnd = Date.now() + timerDuration * 1000;
+  if (!cardEl) return;
+  const readTime = Number(cardEl.dataset.readTime || 0);
+  if (!readTime) return;
+  const timeEl = cardEl.querySelector(".time");
+  const timebarEl = cardEl.querySelector(".timebar-fill");
+  timerEnd = Date.now() + readTime * 1000;
 
   const tick = () => {
     const remainingMs = Math.max(0, timerEnd - Date.now());
     const remaining = Math.ceil(remainingMs / 1000);
-    if (remainingMs <= 0) {
-      timeEl.textContent = "Time complete";
-    } else {
-      timeEl.textContent = `Time ${remaining}s left`;
+    if (timeEl) {
+      timeEl.textContent = remainingMs <= 0 ? "Time complete" : `Time ${remaining}s left`;
     }
     if (timebarEl) {
-      const progress = remainingMs / (timerDuration * 1000);
+      const progress = remainingMs / (readTime * 1000);
       timebarEl.style.transform = `scaleX(${progress})`;
     }
     if (remainingMs <= 0) {
@@ -95,129 +86,135 @@ const startTimer = (seconds) => {
   timerId = window.setInterval(tick, 250);
 };
 
-const renderCard = (card) => {
-  titleEl.textContent = card.title;
-  categoryEl.textContent = card.category;
-  difficultyEl.textContent = card.difficulty;
-  timeEl.textContent = `Time ${card.readTimeSec}s`;
-  sourceEl.textContent = card.source || "";
+const buildCard = (card) => {
+  const el = document.createElement("article");
+  el.className = "card deck-card";
+  el.setAttribute("aria-label", "Learning card");
+  el.dataset.id = card.id;
+  el.dataset.readTime = card.readTimeSec;
 
-  contentEl.innerHTML = "";
-  for (const line of card.content) {
-    const li = document.createElement("li");
-    li.textContent = line;
-    contentEl.appendChild(li);
+  const points = card.content
+    .map((line) => `<li>${line}</li>`)
+    .join("");
+
+  el.innerHTML = `
+    <div class="card-header">
+      <div class="pill">${card.category}</div>
+      <div class="difficulty">${card.difficulty}</div>
+    </div>
+    <h1 class="title">${card.title}</h1>
+    <div class="divider"></div>
+    <ul class="points">${points}</ul>
+    <footer class="card-footer">
+      <span class="time">Time ${card.readTimeSec}s</span>
+      <span class="source">${card.source || ""}</span>
+    </footer>
+    <div class="timebar" aria-hidden="true">
+      <span class="timebar-fill"></span>
+    </div>
+  `;
+
+  return el;
+};
+
+const renderDeck = (direction = stackDirection) => {
+  deckEl.innerHTML = "";
+  const count = Math.min(stackSize, cards.length);
+  for (let i = 0; i < count; i += 1) {
+    const offset = i === 0 ? 0 : direction * i;
+    const cardIndex = (index + offset + cards.length) % cards.length;
+    const el = buildCard(cards[cardIndex]);
+    deckEl.appendChild(el);
   }
 
+  initCards();
+};
+
+const initCards = () => {
+  const deckCards = deckEl.querySelectorAll(".deck-card");
+  deckCards.forEach((card, i) => {
+    card.style.zIndex = deckCards.length - i;
+    card.style.transform = `translate3d(0, 0, 0) scale(${(20 - i) / 20})`;
+    card.style.opacity = `${(10 - i) / 10}`;
+    card.style.pointerEvents = i === 0 ? "auto" : "none";
+    if (i === 0) {
+      attachCardEvents(card);
+      startTimer(card);
+    }
+  });
   progressEl.textContent = `${index + 1} / ${cards.length}`;
-  startTimer(card.readTimeSec);
 };
 
-const animateTo = (nextIndex) => {
-  if (isAnimating || cards.length === 0) return;
-  isAnimating = true;
-  cardEl.classList.add("is-exit");
+const swipeCard = (direction) => {
+  if (isButtonAnimating) return;
+  const deckCards = deckEl.querySelectorAll(".deck-card");
+  if (!deckCards.length) return;
+  const card = deckCards[0];
   stopTimer();
+  const moveOutWidth = document.body.clientWidth * 1.5;
+  const toX = direction > 0 ? moveOutWidth : -moveOutWidth;
+  const rotate = direction > 0 ? 12 : -12;
+  isButtonAnimating = true;
+  card.classList.add("dragging");
+  card.style.transform = `translate3d(${toX}px, -80px, 0) rotate(${rotate}deg)`;
   window.setTimeout(() => {
-    index = nextIndex;
-    renderCard(cards[index]);
-    cardEl.classList.remove("is-exit");
-    isAnimating = false;
-  }, 220);
+    index = direction > 0 ? (index + 1) % cards.length : (index - 1 + cards.length) % cards.length;
+    renderDeck(direction);
+    isButtonAnimating = false;
+  }, 260);
 };
 
-const setCardTransform = (x, y, rotation) => {
-  cardEl.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
-};
+const attachCardEvents = (card) => {
+  if (card.dataset.bound) return;
+  card.dataset.bound = "true";
 
-const resetCardTransform = () => {
-  cardEl.style.transform = "translate3d(0, 0, 0)";
-};
-
-const swipeOut = (direction) => {
-  const endX = direction * (window.innerWidth * 0.6);
-  const rotation = direction * maxRotate;
-  cardEl.style.transition = "transform 220ms ease";
-  setCardTransform(endX, 0, rotation);
-  window.setTimeout(() => {
-    cardEl.style.transition = "";
-    resetCardTransform();
-    if (direction > 0) {
-      prevCard();
-    } else {
-      nextCard();
-    }
-  }, 220);
-};
-
-const nextCard = () => {
-  if (cards.length === 0) return;
-  const nextIndex = (index + 1) % cards.length;
-  animateTo(nextIndex);
-};
-
-const prevCard = () => {
-  if (cards.length === 0) return;
-  const nextIndex = (index - 1 + cards.length) % cards.length;
-  animateTo(nextIndex);
-};
-
-const attachEvents = () => {
-  prevBtn.addEventListener("click", prevCard);
-  nextBtn.addEventListener("click", nextCard);
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") nextCard();
-    if (event.key === "ArrowLeft") prevCard();
-  });
-
-  const updateDrag = () => {
-    const x = swipe.deltaX;
-    const y = swipe.deltaY * 0.25;
-    const rotate = (x / window.innerWidth) * maxRotate;
-    setCardTransform(x, y, rotate);
-    swipe.rafId = 0;
+  const onMove = (event) => {
+    if (!activeCard || activeCard !== card) return;
+    moveX = event.clientX - startX;
+    moveY = event.clientY - startY;
+    const rotation = moveX / 10;
+    card.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotate(${rotation}deg)`;
+    stackDirection = moveX >= 0 ? 1 : -1;
   };
 
-  cardEl.addEventListener("pointerdown", (event) => {
-    if (isAnimating) return;
-    swipe.active = true;
-    swipe.startX = event.clientX;
-    swipe.startY = event.clientY;
-    swipe.deltaX = 0;
-    swipe.deltaY = 0;
-    swipe.pointerId = event.pointerId;
-    cardEl.setPointerCapture(event.pointerId);
-    cardEl.classList.add("is-dragging");
-  });
+  const onUp = () => {
+    if (!activeCard || activeCard !== card) return;
+    deckEl.classList.remove("show-stack");
+    card.classList.remove("dragging");
 
-  cardEl.addEventListener("pointermove", (event) => {
-    if (!swipe.active || swipe.pointerId !== event.pointerId) return;
-    swipe.deltaX = event.clientX - swipe.startX;
-    swipe.deltaY = event.clientY - swipe.startY;
-    if (!swipe.rafId) {
-      swipe.rafId = window.requestAnimationFrame(updateDrag);
-    }
-  });
-
-  const endSwipe = () => {
-    if (!swipe.active) return;
-    swipe.active = false;
-    cardEl.classList.remove("is-dragging");
-    if (Math.abs(swipe.deltaX) > swipeThreshold) {
-      swipeOut(swipe.deltaX > 0 ? 1 : -1);
-    } else {
-      cardEl.style.transition = "transform 200ms ease";
-      resetCardTransform();
+    if (Math.abs(moveX) > swipeThreshold) {
+      const direction = moveX > 0 ? 1 : -1;
+      const toX = direction > 0 ? 1000 : -1000;
+      card.style.transform = `translate3d(${toX}px, ${moveY}px, 0) rotate(${moveX / 10}deg)`;
       window.setTimeout(() => {
-        cardEl.style.transition = "";
-      }, 200);
+        index = direction > 0 ? (index + 1) % cards.length : (index - 1 + cards.length) % cards.length;
+        renderDeck(direction);
+      }, 220);
+    } else {
+      card.style.transform = "";
+      renderDeck(1);
     }
-    swipe.pointerId = null;
+
+    activeCard = null;
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onUp);
+    window.removeEventListener("pointercancel", onUp);
   };
 
-  cardEl.addEventListener("pointerup", endSwipe);
-  cardEl.addEventListener("pointercancel", endSwipe);
+  card.addEventListener("pointerdown", (event) => {
+    activeCard = card;
+    deckEl.classList.add("show-stack");
+    startX = event.clientX;
+    startY = event.clientY;
+    moveX = 0;
+    moveY = 0;
+    stackDirection = 1;
+    card.setPointerCapture(event.pointerId);
+    card.classList.add("dragging");
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+  });
 };
 
 const loadCards = async () => {
@@ -252,7 +249,7 @@ const loadCards = async () => {
 
     cards = valid;
     index = 0;
-    renderCard(cards[index]);
+    renderDeck();
     setStatus(`${cards.length} cards loaded`);
   } catch (error) {
     console.error(error);
@@ -261,5 +258,12 @@ const loadCards = async () => {
   }
 };
 
-attachEvents();
+prevBtn.addEventListener("click", () => swipeCard(-1));
+nextBtn.addEventListener("click", () => swipeCard(1));
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") swipeCard(1);
+  if (event.key === "ArrowLeft") swipeCard(-1);
+});
+
 loadCards();

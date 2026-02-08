@@ -3020,5 +3020,1205 @@
     ],
     "tags": ["hardware", "history", "future"],
     "source": "Intel"
+  },
+  {
+    "id": "cpu-cores-threads",
+    "title": "Cores vs Threads",
+    "category": "Hardware",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Core: A physical processing unit within the CPU",
+      "Thread: A virtual version of a core (Hyper-threading)",
+      "More cores = better at heavy multitasking (video editing)",
+      "Single-core speed matters most for gaming"
+    ],
+    "tags": ["cpu", "performance", "specs"],
+    "source": "Intel"
+  },
+  {
+    "id": "clock-speed",
+    "title": "Clock Speed (GHz)",
+    "category": "Hardware",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Measures how many cycles a CPU executes per second",
+      "3.5 GHz = 3.5 billion cycles per second",
+      "Higher is generally faster, but architecture matters more",
+      "Base clock vs Boost clock (temporary speed burst)"
+    ],
+    "tags": ["cpu", "specs", "performance"],
+    "source": "Tom's Hardware"
+  },
+  {
+    "id": "thermal-design-power",
+    "title": "TDP (Thermal Design Power)",
+    "category": "Hardware",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Maximum heat a component generates under load",
+      "measured in Watts",
+      "Determines what kind of cooler and power supply you need",
+      "High TDP = High Performance = High Heat"
+    ],
+    "tags": ["pc-building", "physics", "power"],
+    "source": "AMD"
+  },
+  {
+    "id": "arm-vs-x86",
+    "title": "ARM vs x86 Architecture",
+    "category": "Hardware",
+    "difficulty": "Advanced",
+    "readTimeSec": 60,
+    "content": [
+      "x86 (Intel/AMD): Complex instructions, high power, dominant in PCs",
+      "ARM (Apple Silicon/Qualcomm): Simple instructions, power efficient",
+      "ARM is dominant in mobile; now taking over laptops (M1/M2/M3)",
+      "Software must be compiled specifically for one or the other"
+    ],
+    "tags": ["cpu", "architecture", "mobile"],
+    "source": "RedHat"
+  },
+  {
+    "id": "fpga-explained",
+    "title": "FPGA",
+    "category": "Hardware",
+    "difficulty": "Advanced",
+    "readTimeSec": 55,
+    "content": [
+      "Field-Programmable Gate Array",
+      "A chip that can be rewired via software after manufacturing",
+      "Used for specific tasks (AI, signal processing) where speed is key",
+      "Harder to program than a standard CPU"
+    ],
+    "tags": ["electronics", "engineering", "chips"],
+    "source": "Xilinx"
+  },
+  {
+    "id": "raid-arrays",
+    "title": "RAID Storage",
+    "category": "Storage",
+    "difficulty": "Intermediate",
+    "readTimeSec": 55,
+    "content": [
+      "Redundant Array of Independent Disks",
+      "RAID 0: Speed (striping), no safety",
+      "RAID 1: Safety (mirroring), normal speed",
+      "RAID 5: Balance of speed and safety (parity)"
+    ],
+    "tags": ["server", "backup", "data"],
+    "source": "Synology"
+  },
+  {
+    "id": "thunderbolt-usb4",
+    "title": "Thunderbolt vs USB 4",
+    "category": "Hardware",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Thunderbolt: Intel protocol, 40Gbps, supports external GPUs",
+      "USB 4: Based on Thunderbolt 3, universal standard",
+      "Both use the USB-C connector shape",
+      "Confusing naming conventions (Gen 2x2, etc.)"
+    ],
+    "tags": ["cables", "standards", "connectivity"],
+    "source": "Intel"
+  },
+  {
+    "id": "silicon-lottery",
+    "title": "The Silicon Lottery",
+    "category": "Hardware",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Microscopic manufacturing imperfections make every chip unique",
+      "Two identical CPUs might handle overclocking differently",
+      "A 'Golden Chip' runs faster at lower voltage",
+      "Luck of the draw when buying parts"
+    ],
+    "tags": ["overclocking", "manufacturing", "enthusiast"],
+    "source": "GamersNexus"
+  },
+  {
+    "id": "liquid-cooling",
+    "title": "Liquid Cooling vs Air Cooling",
+    "category": "Hardware",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Air: Heatsink + Fan; reliable, cheap, bulky",
+      "AIO (All-In-One) Liquid: Radiator + Pump; cleaner look, efficient",
+      "Custom Loop: High maintenance, best performance, very expensive",
+      "Liquid has higher thermal capacity than air"
+    ],
+    "tags": ["pc-building", "thermal", "maintenance"],
+    "source": "Corsair"
+  },
+  {
+    "id": "psu-ratings",
+    "title": "80 Plus PSU Ratings",
+    "category": "Hardware",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Measures power supply efficiency (wall to component)",
+      "Tiers: White, Bronze, Silver, Gold, Platinum, Titanium",
+      "Higher tier = less wasted electricity (heat)",
+      "Does not strictly indicate quality, just efficiency"
+    ],
+    "tags": ["power", "green-tech", "pc-parts"],
+    "source": "Plug Load Solutions"
+  },
+  {
+    "id": "dns-explained",
+    "title": "DNS (Domain Name System)",
+    "category": "Internet",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "The phonebook of the internet",
+      "Translates 'google.com' into IP address '142.250.190.46'",
+      "If DNS server fails, you can't load websites by name",
+      "Changing DNS (e.g., to 1.1.1.1) can improve speed/privacy"
+    ],
+    "tags": ["networking", "web", "infrastructure"],
+    "source": "Cloudflare"
+  },
+  {
+    "id": "ipv6-protocol",
+    "title": "IPv4 vs IPv6",
+    "category": "Networking",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "IPv4: 32-bit addresses (ran out of unique numbers)",
+      "IPv6: 128-bit addresses (virtually infinite)",
+      "IPv6 removes need for NAT",
+      "Adoption is slow because upgrading old hardware is hard"
+    ],
+    "tags": ["internet", "protocols", "history"],
+    "source": "Internet Society"
+  },
+  {
+    "id": "ssl-tls",
+    "title": "SSL / TLS Certificates",
+    "category": "Security",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Encrypts data between browser and server",
+      "Represented by the Padlock icon in URL bar",
+      "TLS is the modern successor to SSL",
+      "Prevents ISPs or hackers from reading your passwords"
+    ],
+    "tags": ["encryption", "web", "security"],
+    "source": "DigiCert"
+  },
+  {
+    "id": "vpn-basics",
+    "title": "VPN (Virtual Private Network)",
+    "category": "Privacy",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Creates an encrypted tunnel for your internet traffic",
+      "Hides your IP address from websites",
+      "Hides your browsing history from your ISP",
+      "Used for remote work security and bypassing geo-blocks"
+    ],
+    "tags": ["security", "privacy", "tools"],
+    "source": "NordVPN"
+  },
+  {
+    "id": "cdn-explained",
+    "title": "CDN (Content Delivery Network)",
+    "category": "Internet",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Network of servers distributed globally",
+      "Stores copies of images/videos closer to users",
+      "Speeds up website loading times drastically",
+      "Defends against DDoS attacks by absorbing traffic"
+    ],
+    "tags": ["web-dev", "performance", "infrastructure"],
+    "source": "Akamai"
+  },
+  {
+    "id": "latency-jitter",
+    "title": "Latency vs Jitter",
+    "category": "Networking",
+    "difficulty": "Intermediate",
+    "readTimeSec": 40,
+    "content": [
+      "Latency (Ping): Time for data to travel round-trip",
+      "Jitter: The variation in latency over time",
+      "High jitter causes lag spikes in gaming",
+      "Stable high ping is better than unstable low ping"
+    ],
+    "tags": ["gaming", "performance", "internet"],
+    "source": "Cisco"
+  },
+  {
+    "id": "ssh-protocol",
+    "title": "SSH (Secure Shell)",
+    "category": "Networking",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Protocol for secure remote login to computers",
+      "Replaced the insecure Telnet",
+      "Uses public/private key pairs for authentication",
+      "Essential tool for server administrators"
+    ],
+    "tags": ["linux", "server", "security"],
+    "source": "OpenSSH"
+  },
+  {
+    "id": "5g-mmwave",
+    "title": "5G: Sub-6 vs mmWave",
+    "category": "Mobile",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Sub-6: Slight upgrade over 4G; good range, decent speed",
+      "mmWave: Insanely fast (Gigabit), very poor range",
+      "mmWave is blocked by walls and even rain",
+      "Most '5G' icons on phones are utilizing Sub-6"
+    ],
+    "tags": ["telecom", "future", "infrastructure"],
+    "source": "Qualcomm"
+  },
+  {
+    "id": "docker-containers",
+    "title": "Docker / Containers",
+    "category": "DevOps",
+    "difficulty": "Intermediate",
+    "readTimeSec": 55,
+    "content": [
+      "Packages app and dependencies into a 'container'",
+      "Runs the same on any machine (laptop or server)",
+      "Lighter than a Virtual Machine (no OS overhead)",
+      "Solves 'it works on my machine' problem"
+    ],
+    "tags": ["software", "deployment", "virtualization"],
+    "source": "Docker Inc"
+  },
+  {
+    "id": "kubernetes-k8s",
+    "title": "Kubernetes (K8s)",
+    "category": "DevOps",
+    "difficulty": "Advanced",
+    "readTimeSec": 55,
+    "content": [
+      "System for managing thousands of containers",
+      "Auto-scaling: Adds servers when traffic spikes",
+      "Self-healing: Restarts crashed containers",
+      "Originally designed by Google (Borg)"
+    ],
+    "tags": ["cloud", "scaling", "infrastructure"],
+    "source": "CNCF"
+  },
+  {
+    "id": "serverless-compute",
+    "title": "Serverless Computing",
+    "category": "Cloud",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Running code without managing servers (e.g., AWS Lambda)",
+      "You pay only for the milliseconds the code runs",
+      "Scales from 0 to 10,000 requests instantly",
+      "Servers still exist, but they are the vendor's problem"
+    ],
+    "tags": ["cloud", "architecture", "coding"],
+    "source": "AWS"
+  },
+  {
+    "id": "ci-cd-pipeline",
+    "title": "CI/CD Pipeline",
+    "category": "DevOps",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Continuous Integration / Continuous Deployment",
+      "Automates testing and releasing code",
+      "Code is built, tested, and pushed to production automatically",
+      "Enables companies to update apps multiple times a day"
+    ],
+    "tags": ["automation", "software-engineering", "agile"],
+    "source": "GitLab"
+  },
+  {
+    "id": "microservices",
+    "title": "Microservices",
+    "category": "Architecture",
+    "difficulty": "Intermediate",
+    "readTimeSec": 55,
+    "content": [
+      "Breaking a big app (Monolith) into small services",
+      "User service, Payment service, Cart service run independently",
+      "If Payment crashes, the rest of the site stays up",
+      "Complex to manage networking between them"
+    ],
+    "tags": ["software-design", "backend", "scalability"],
+    "source": "Martin Fowler"
+  },
+  {
+    "id": "iac-terraform",
+    "title": "Infrastructure as Code (IaC)",
+    "category": "DevOps",
+    "difficulty": "Advanced",
+    "readTimeSec": 50,
+    "content": [
+      "Managing servers using configuration files (Terraform/Ansible)",
+      "Prevents 'Configuration Drift' (servers becoming different)",
+      "Allows destroying and rebuilding cloud setups in minutes",
+      "Treats hardware setup like software code"
+    ],
+    "tags": ["automation", "cloud", "scripting"],
+    "source": "HashiCorp"
+  },
+  {
+    "id": "rest-api",
+    "title": "REST API",
+    "category": "Development",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Representational State Transfer",
+      "Standard way for computers to talk over HTTP",
+      "Stateless: Server doesn't remember previous requests",
+      "Uses standard methods: GET, POST, PUT, DELETE"
+    ],
+    "tags": ["web-services", "coding", "integration"],
+    "source": "RedHat"
+  },
+  {
+    "id": "graphql-api",
+    "title": "GraphQL",
+    "category": "Development",
+    "difficulty": "Advanced",
+    "readTimeSec": 50,
+    "content": [
+      "Modern alternative to REST APIs",
+      "Client asks exactly for data it needs, nothing more",
+      "Fixes 'Over-fetching' (downloading too much data)",
+      "Single endpoint instead of multiple URLs"
+    ],
+    "tags": ["facebook", "web-dev", "api"],
+    "source": "GraphQL.org"
+  },
+  {
+    "id": "git-version-control",
+    "title": "Git",
+    "category": "Development",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Distributed Version Control System",
+      "Tracks every change made to code history",
+      "Allows 'Branching' to experiment safely",
+      "GitHub/GitLab are hosting services for Git"
+    ],
+    "tags": ["coding", "collaboration", "essential"],
+    "source": "Linus Torvalds"
+  },
+  {
+    "id": "json-vs-xml",
+    "title": "JSON vs XML",
+    "category": "Development",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Formats for data exchange",
+      "XML: Like HTML, verbose, strict, supports metadata",
+      "JSON: Lightweight, readable, maps to code objects",
+      "JSON has largely replaced XML for web APIs"
+    ],
+    "tags": ["data", "web", "standards"],
+    "source": "W3Schools"
+  },
+  {
+    "id": "compiled-vs-interpreted",
+    "title": "Compiled vs Interpreted",
+    "category": "Programming",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Compiled (C++, Rust): Code translates to machine code beforehand; faster run",
+      "Interpreted (Python, JS): Code translates line-by-line while running; slower",
+      "Java uses both (Compiles to Bytecode, Interpreted by JVM)",
+      "Compiled languages allow for better optimization"
+    ],
+    "tags": ["cs-theory", "performance", "languages"],
+    "source": "GeeksforGeeks"
+  },
+  {
+    "id": "hash-functions",
+    "title": "Hash Functions",
+    "category": "Cryptography",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "One-way math algorithm (e.g., SHA-256)",
+      "Turns any input into a fixed string of characters",
+      "Changing one comma in input changes entire hash",
+      "Used for verifying file integrity and storing passwords"
+    ],
+    "tags": ["security", "math", "blockchain"],
+    "source": "NIST"
+  },
+  {
+    "id": "ascii-unicode",
+    "title": "ASCII vs Unicode",
+    "category": "Computer Science",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "ASCII: 7-bit code, supports English text only (128 chars)",
+      "Unicode: Supports every language + Emojis (140,000+ chars)",
+      "UTF-8 is the standard encoding for Unicode on web",
+      "Mojibake: Garbage text when encoding is mismatched"
+    ],
+    "tags": ["text", "history", "standards"],
+    "source": "Unicode Consortium"
+  },
+  {
+    "id": "binary-hex",
+    "title": "Binary and Hexadecimal",
+    "category": "Computer Science",
+    "difficulty": "Beginner",
+    "readTimeSec": 50,
+    "content": [
+      "Binary (Base 2): 0s and 1s; native language of processors",
+      "Hex (Base 16): 0-9 and A-F; compact way to read binary",
+      "One Hex digit represents 4 bits (a nibble)",
+      "Used for Color Codes (#FF5733) and Memory Addresses"
+    ],
+    "tags": ["math", "coding", "basics"],
+    "source": "Khan Academy"
+  },
+  {
+    "id": "stack-vs-heap",
+    "title": "Stack vs Heap Memory",
+    "category": "Programming",
+    "difficulty": "Advanced",
+    "readTimeSec": 55,
+    "content": [
+      "Stack: Fast, orderly, temporary variables; size limit",
+      "Heap: Slower, messy, large objects; manual management",
+      "Stack Overflow happens when the stack runs out of room",
+      "Memory Leaks happen in the Heap"
+    ],
+    "tags": ["memory", "coding", "optimization"],
+    "source": "GeeksforGeeks"
+  },
+  {
+    "id": "big-o-notation",
+    "title": "Big O Notation",
+    "category": "Computer Science",
+    "difficulty": "Advanced",
+    "readTimeSec": 60,
+    "content": [
+      "Describes how an algorithm slows down as data grows",
+      "O(1): Instant; O(n): Linear; O(n^2): Slow/Exponential",
+      "Used to evaluate code efficiency/scalability",
+      "Essential for coding interviews"
+    ],
+    "tags": ["algorithms", "math", "interviews"],
+    "source": "FreeCodeCamp"
+  },
+  {
+    "id": "mfa-2fa",
+    "title": "MFA / 2FA",
+    "category": "Security",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Multi-Factor Authentication",
+      "Something you know (password) + Something you have (phone)",
+      "SMS 2FA is insecure (SIM swapping)",
+      "Authenticator Apps or Hardware Keys (YubiKey) are best"
+    ],
+    "tags": ["security", "best-practices", "login"],
+    "source": "CISA"
+  },
+  {
+    "id": "biometrics-security",
+    "title": "Biometric Security",
+    "category": "Security",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Using biological traits for ID (Fingerprint, FaceID)",
+      "Convenient but you cannot 'change' your fingerprint if stolen",
+      "stored as a mathematical hash, not an image",
+      "U.S. law treats biometrics differently than passwords"
+    ],
+    "tags": ["privacy", "mobile", "law"],
+    "source": "EFF"
+  },
+  {
+    "id": "ransomware-basics",
+    "title": "Ransomware",
+    "category": "Security",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Malware that encrypts your files",
+      "Attacker demands payment (crypto) for the decryption key",
+      "Targeting hospitals and cities recently",
+      "Backups are the only reliable defense"
+    ],
+    "tags": ["malware", "crime", "defense"],
+    "source": "FBI"
+  },
+  {
+    "id": "botnets-ddos",
+    "title": "Botnets",
+    "category": "Security",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Network of infected computers (zombies) controlled remotely",
+      "Used to launch DDoS attacks or mine crypto",
+      "IoT devices (fridges, cameras) are often recruited",
+      "Owners often don't know their device is part of a botnet"
+    ],
+    "tags": ["hacking", "iot", "infrastructure"],
+    "source": "Norton"
+  },
+  {
+    "id": "honeypot-sec",
+    "title": "Honeypot",
+    "category": "Security",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Decoy system set up to attract hackers",
+      "Contains fake data but looks real",
+      "Used to study attacker behavior and techniques",
+      "Distracts hackers from the real valuable servers"
+    ],
+    "tags": ["defense", "research", "tactics"],
+    "source": "SANS Institute"
+  },
+  {
+    "id": "pgp-encryption",
+    "title": "PGP (Pretty Good Privacy)",
+    "category": "Security",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Standard for encrypting emails and files",
+      "Uses Public Key (to encrypt) and Private Key (to decrypt)",
+      "Allows 'signing' messages to prove identity",
+      "Trust model: Web of Trust"
+    ],
+    "tags": ["cryptography", "email", "privacy"],
+    "source": "OpenPGP"
+  },
+  {
+    "id": "social-engineering",
+    "title": "Social Engineering",
+    "category": "Security",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Hacking the human, not the machine",
+      "Manipulating people into giving up passwords",
+      "Pretexting: Pretending to be IT support or CEO",
+      "Often more effective than technical hacking"
+    ],
+    "tags": ["psychology", "hacking", "awareness"],
+    "source": "Kevin Mitnick"
+  },
+  {
+    "id": "phishing-types",
+    "title": "Phishing",
+    "category": "Security",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Fraudulent emails aiming to steal credentials",
+      "Spear Phishing: Targeted at a specific person",
+      "Whaling: Targeted at high-profile execs",
+      "Check the sender URL carefully"
+    ],
+    "tags": ["email", "scams", "security"],
+    "source": "FTC"
+  },
+  {
+    "id": "blockchain-basics",
+    "title": "How Blockchain Works",
+    "category": "Crypto",
+    "difficulty": "Intermediate",
+    "readTimeSec": 55,
+    "content": [
+      "Distributed, immutable ledger of transactions",
+      "Blocks are linked using hashes of previous blocks",
+      "Requires consensus from network to add data",
+      "Eliminates need for a central bank/intermediary"
+    ],
+    "tags": ["web3", "finance", "database"],
+    "source": "Coinbase"
+  },
+  {
+    "id": "pow-vs-pos",
+    "title": "Proof of Work vs Proof of Stake",
+    "category": "Crypto",
+    "difficulty": "Advanced",
+    "readTimeSec": 55,
+    "content": [
+      "Mechanisms to agree on valid transactions",
+      "PoW (Bitcoin): Energy intensive; miners solve math puzzles",
+      "PoS (Ethereum): Efficient; validators 'stake' coins as collateral",
+      "PoS reduces energy consumption by ~99%"
+    ],
+    "tags": ["environment", "consensus", "blockchain"],
+    "source": "Ethereum.org"
+  },
+  {
+    "id": "smart-contracts",
+    "title": "Smart Contracts",
+    "category": "Crypto",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Self-executing code on a blockchain",
+      "If X happens, then Y happens automatically",
+      "Immutable: Cannot be changed once deployed",
+      "Powers DeFi (Decentralized Finance) apps"
+    ],
+    "tags": ["coding", "law", "automation"],
+    "source": "Chainlink"
+  },
+  {
+    "id": "crypto-cold-storage",
+    "title": "Cold Storage (Wallets)",
+    "category": "Crypto",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Storing cryptocurrency offline (USB or Paper)",
+      "Hot Wallet: Connected to internet (Exchange/App)",
+      "Cold Wallet: Immune to online hacking",
+      "Key phrase: 'Not your keys, not your coins'"
+    ],
+    "tags": ["security", "finance", "hardware"],
+    "source": "Ledger"
+  },
+  {
+    "id": "nft-tech",
+    "title": "NFT (Non-Fungible Token)",
+    "category": "Crypto",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Unique digital certificate of ownership",
+      "Fungible = Bitcoin (swappable); Non-Fungible = Mona Lisa",
+      "Stores metadata (link to image) on blockchain",
+      "Usage expanding to tickets and deeds, beyond art"
+    ],
+    "tags": ["web3", "digital-art", "ownership"],
+    "source": "The Verge"
+  },
+  {
+    "id": "quantum-computing",
+    "title": "Quantum Computing",
+    "category": "Future Tech",
+    "difficulty": "Advanced",
+    "readTimeSec": 60,
+    "content": [
+      "Uses Qubits instead of Bits",
+      "Superposition: Qubits can be 0 and 1 simultaneously",
+      "Entanglement: Instant connection between particles",
+      "Threatens to break current encryption standards"
+    ],
+    "tags": ["physics", "future", "science"],
+    "source": "IBM Quantum"
+  },
+  {
+    "id": "ar-vr-mr",
+    "title": "AR vs VR vs MR",
+    "category": "Future Tech",
+    "difficulty": "Beginner",
+    "readTimeSec": 50,
+    "content": [
+      "VR (Virtual): Fully immersive digital world",
+      "AR (Augmented): Digital overlay on real world (Pokemon Go)",
+      "MR (Mixed): Digital objects interact with real world",
+      "XR (Extended Reality): Umbrella term for all three"
+    ],
+    "tags": ["gaming", "interface", "metaverse"],
+    "source": "Unity"
+  },
+  {
+    "id": "haptic-feedback",
+    "title": "Haptic Feedback",
+    "category": "Hardware",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Tactile response (vibration) from device",
+      "Linear Resonant Actuators provide precise 'clicks'",
+      "Used in touchscreens to simulate buttons",
+      "Advanced haptics can simulate texture"
+    ],
+    "tags": ["ux", "mobile", "gaming"],
+    "source": "Apple"
+  },
+  {
+    "id": "bci-neuralink",
+    "title": "Brain-Computer Interface (BCI)",
+    "category": "Future Tech",
+    "difficulty": "Advanced",
+    "readTimeSec": 50,
+    "content": [
+      "Direct communication pathway between brain and machine",
+      "Can restore motor function to paralyzed limbs",
+      "Invasive (implants) vs Non-invasive (EEG caps)",
+      "Ethical concerns regarding privacy of thought"
+    ],
+    "tags": ["medical", "ai", "cybernetics"],
+    "source": "Neuralink"
+  },
+  {
+    "id": "solid-state-battery",
+    "title": "Solid State Batteries",
+    "category": "Energy",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Replaces liquid electrolyte with solid material",
+      "Higher energy density and faster charging",
+      "Non-flammable (safer than Lithium-Ion)",
+      "Holy grail for Electric Vehicles"
+    ],
+    "tags": ["ev", "green-tech", "chemistry"],
+    "source": "Toyota"
+  },
+  {
+    "id": "autonomous-levels",
+    "title": "Autonomous Driving Levels",
+    "category": "AI",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Level 0: No automation",
+      "Level 2: Hands-off but eyes-on (Tesla Autopilot)",
+      "Level 3: Eyes-off in specific situations",
+      "Level 5: No steering wheel needed (Full Self-Driving)"
+    ],
+    "tags": ["cars", "ai", "transportation"],
+    "source": "SAE International"
+  },
+  {
+    "id": "graphene-tech",
+    "title": "Graphene",
+    "category": "Material Science",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Single layer of carbon atoms arranged in honeycomb",
+      "200x stronger than steel, best conductor of electricity",
+      "Potential to revolutionize chips and batteries",
+      "Currently difficult to mass produce"
+    ],
+    "tags": ["hardware", "future", "physics"],
+    "source": "Graphene Flagship"
+  },
+  {
+    "id": "kernel-os",
+    "title": "The Kernel",
+    "category": "OS",
+    "difficulty": "Advanced",
+    "readTimeSec": 50,
+    "content": [
+      "The core of an Operating System",
+      "Complete control over everything in the system",
+      "Manages CPU, Memory, and Devices for apps",
+      "Linux is a kernel; Android is the OS built on it"
+    ],
+    "tags": ["linux", "windows", "theory"],
+    "source": "Linux Foundation"
+  },
+  {
+    "id": "bios-uefi",
+    "title": "BIOS vs UEFI",
+    "category": "Hardware",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Firmware that starts the computer before the OS",
+      "BIOS: Legacy, text-only, slower boot",
+      "UEFI: Modern, graphical mouse support, Secure Boot",
+      "UEFI supports hard drives larger than 2TB"
+    ],
+    "tags": ["boot", "motherboard", "system"],
+    "source": "ASUS"
+  },
+  {
+    "id": "open-source-licenses",
+    "title": "Open Source Licenses",
+    "category": "Legal",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "MIT: Do whatever you want, just credit me",
+      "GPL (Copyleft): If you use this, your code must also be open",
+      "Apache: Similar to MIT but covers patent rights",
+      "Choosing the wrong license can have legal consequences"
+    ],
+    "tags": ["coding", "law", "business"],
+    "source": "OpenSource.org"
+  },
+  {
+    "id": "bloatware-explained",
+    "title": "Bloatware",
+    "category": "Software",
+    "difficulty": "Beginner",
+    "readTimeSec": 35,
+    "content": [
+      "Pre-installed unwanted software on new devices",
+      "Takes up space and slows down system",
+      "Paid for by third parties (e.g., antivirus trials)",
+      "Can usually be uninstalled, sometimes requires tools"
+    ],
+    "tags": ["consumer", "annoyance", "optimization"],
+    "source": "PCWorld"
+  },
+  {
+    "id": "cookies-types",
+    "title": "Cookies: 1st vs 3rd Party",
+    "category": "Privacy",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "1st Party: Set by the site you visit (keeps you logged in)",
+      "3rd Party: Set by advertisers tracking you across web",
+      "Browsers are phasing out 3rd Party cookies",
+      "Fingerprinting is replacing cookies for tracking"
+    ],
+    "tags": ["web", "ads", "privacy"],
+    "source": "Mozilla"
+  },
+  {
+    "id": "web-cache",
+    "title": "Browser Cache",
+    "category": "Web",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Storage of temporary files (images, scripts)",
+      "Speeds up browsing by not re-downloading static assets",
+      "Clearing cache fixes display errors on updated sites",
+      "Hard Refresh (Ctrl+F5) bypasses cache"
+    ],
+    "tags": ["troubleshooting", "internet", "browser"],
+    "source": "Google Support"
+  },
+  {
+    "id": "dark-web-vs-deep",
+    "title": "Deep Web vs Dark Web",
+    "category": "Internet",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Deep Web: Anything behind a login (Email, Banking) - 90% of web",
+      "Dark Web: Encrypted networks (Tor) requiring special software",
+      "Dark Web hosts illegal markets but also whistleblowers",
+      "Surface Web is what Google can index"
+    ],
+    "tags": ["security", "myths", "infrastructure"],
+    "source": "Norton"
+  },
+  {
+    "id": "torrenting-p2p",
+    "title": "Torrenting (P2P)",
+    "category": "Internet",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Peer-to-Peer file sharing",
+      "Files are split into pieces and shared among users",
+      "Seeder: Has full file; Leecher: Downloading file",
+      "Legal technology often used for illegal piracy"
+    ],
+    "tags": ["networking", "files", "protocols"],
+    "source": "BitTorrent"
+  },
+  {
+    "id": "webhooks-api",
+    "title": "Webhooks",
+    "category": "Development",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Reverse API: Server tells you when something happens",
+      "Don't call us, we'll call you",
+      "Used for payment notifications (Stripe) or discord bots",
+      "More efficient than polling (asking repeatedly)"
+    ],
+    "tags": ["coding", "automation", "backend"],
+    "source": "Zapier"
+  },
+  {
+    "id": "captcha-bot",
+    "title": "CAPTCHA",
+    "category": "Web",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Completely Automated Public Turing test to tell Computers and Humans Apart",
+      "Prevents bots from spamming forms",
+      "reCAPTCHA trains AI (identifying traffic lights)",
+      "Modern versions look at mouse movement behavior"
+    ],
+    "tags": ["security", "ai", "ux"],
+    "source": "Google"
+  },
+  {
+    "id": "ocr-tech",
+    "title": "OCR (Optical Character Recognition)",
+    "category": "Software",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Converts images of text into editable text",
+      "Used for scanning documents and translating street signs",
+      "Mobile banking uses it for check deposits",
+      "Early versions required specific fonts"
+    ],
+    "tags": ["ai", "productivity", "vision"],
+    "source": "Adobe Acrobat"
+  },
+  {
+    "id": "agi-ai",
+    "title": "AGI (Artificial General Intelligence)",
+    "category": "AI",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Hypothetical AI that matches human cognition across all tasks",
+      "Current AI (ANI) is Narrow (good at one thing)",
+      "AGI could teach itself new skills without training",
+      "The 'Singularity' is when AGI surpasses human intelligence"
+    ],
+    "tags": ["future", "philosophy", "sci-fi"],
+    "source": "OpenAI"
+  },
+  {
+    "id": "hallucinations-ai",
+    "title": "AI Hallucinations",
+    "category": "AI",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "When an LLM confidently generates false information",
+      "Caused by the model predicting likely words, not facts",
+      "Model prioritizes fluency over accuracy",
+      "Always verify AI claims with external sources"
+    ],
+    "tags": ["chatgpt", "limitations", "usage"],
+    "source": "Google DeepMind"
+  },
+  {
+    "id": "prompt-engineering",
+    "title": "Prompt Engineering",
+    "category": "AI",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Art of crafting inputs to get best AI results",
+      "Techniques: Few-shot prompting, Chain of Thought",
+      "Garbage In, Garbage Out",
+      "Emerging skill set for modern workers"
+    ],
+    "tags": ["productivity", "skills", "chatgpt"],
+    "source": "Microsoft"
+  },
+  {
+    "id": "rag-ai",
+    "title": "RAG (Retrieval-Augmented Generation)",
+    "category": "AI",
+    "difficulty": "Advanced",
+    "readTimeSec": 55,
+    "content": [
+      "Technique to reduce AI hallucinations",
+      "AI searches a trusted database before answering",
+      "Combines search engine accuracy with LLM creativity",
+      "Used for enterprise chatbots on private data"
+    ],
+    "tags": ["ml", "enterprise", "search"],
+    "source": "NVIDIA"
+  },
+  {
+    "id": "screen-burn-in",
+    "title": "OLED Burn-in",
+    "category": "Display",
+    "difficulty": "Beginner",
+    "readTimeSec": 45,
+    "content": [
+      "Permanent discoloration on screen from static images",
+      "OLED pixels degrade unevenly over time",
+      "Mitigated by 'Pixel Shift' tech",
+      "Avoid leaving news tickers or HUDs on for days"
+    ],
+    "tags": ["hardware", "maintenance", "tv"],
+    "source": "LG"
+  },
+  {
+    "id": "refresh-rate-hz",
+    "title": "Refresh Rate (Hz)",
+    "category": "Display",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "How many times per second the screen updates",
+      "60Hz = Standard; 144Hz+ = Smooth Gaming",
+      "Makes scrolling and animations feel fluid",
+      "Higher refresh rate drains battery faster"
+    ],
+    "tags": ["monitors", "mobile", "gaming"],
+    "source": "BlurBusters"
+  },
+  {
+    "id": "vsync-gsync",
+    "title": "V-Sync vs G-Sync",
+    "category": "Gaming",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "Technologies to prevent Screen Tearing",
+      "V-Sync: Locks FPS to monitor Hz (adds input lag)",
+      "G-Sync (Nvidia) / FreeSync (AMD): Variable Refresh Rate",
+      "Monitor adjusts Hz dynamically to match GPU FPS"
+    ],
+    "tags": ["gpu", "monitors", "performance"],
+    "source": "NVIDIA"
+  },
+  {
+    "id": "ip-ratings",
+    "title": "IP Ratings (Water Resistance)",
+    "category": "Mobile",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Ingress Protection scale",
+      "First digit (Solids/Dust): 6 is dust tight",
+      "Second digit (Liquids): 8 is submersion >1m",
+      "IP68 is standard for flagships; IPX4 is splash proof"
+    ],
+    "tags": ["specs", "durability", "phones"],
+    "source": "IEC"
+  },
+  {
+    "id": "usb-generations",
+    "title": "USB Naming Confusion",
+    "category": "Hardware",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "USB 3.0 became 3.1 Gen 1, then 3.2 Gen 1 (5Gbps)",
+      "USB 3.1 became 3.2 Gen 2 (10Gbps)",
+      "Always check the speed (Gbps) not just the name",
+      "USB-C is just the shape, not the speed"
+    ],
+    "tags": ["cables", "marketing", "annoyance"],
+    "source": "USB-IF"
+  },
+  {
+    "id": "dark-mode-oled",
+    "title": "Dark Mode & Battery Life",
+    "category": "Mobile",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "On OLED screens, black pixels are turned off",
+      "True black backgrounds save significant battery",
+      "On LCD screens, backlight is always on (no saving)",
+      "Also reduces eye strain in low light"
+    ],
+    "tags": ["tips", "energy", "ux"],
+    "source": "Google"
+  },
+  {
+    "id": "rootkit-malware",
+    "title": "Rootkits",
+    "category": "Security",
+    "difficulty": "Advanced",
+    "readTimeSec": 50,
+    "content": [
+      "Malware designed to hide itself deep in the OS",
+      "Operates at Administrator/Kernel level",
+      "Can hide other malware from antivirus scans",
+      "Often requires wiping the drive to remove"
+    ],
+    "tags": ["hacking", "danger", "defense"],
+    "source": "Malwarebytes"
+  },
+  {
+    "id": "nfc-tech",
+    "title": "NFC (Near Field Communication)",
+    "category": "Mobile",
+    "difficulty": "Beginner",
+    "readTimeSec": 40,
+    "content": [
+      "Short-range wireless tech (4cm)",
+      "Powers Contactless Payments (Apple Pay)",
+      "Used for quick pairing of headphones",
+      "Can read passive tags (stickers) without power"
+    ],
+    "tags": ["wireless", "payment", "convenience"],
+    "source": "NFC Forum"
+  },
+  {
+    "id": "soc-explained",
+    "title": "SoC (System on Chip)",
+    "category": "Hardware",
+    "difficulty": "Intermediate",
+    "readTimeSec": 45,
+    "content": [
+      "Integrating all computer components on one chip",
+      "CPU + GPU + RAM + Modem in one package",
+      "Used in Phones and modern Laptops (Apple Silicon)",
+      "High efficiency due to short data distance"
+    ],
+    "tags": ["architecture", "mobile", "integration"],
+    "source": "Arm Ltd"
+  },
+  {
+    "id": "incognito-mode",
+    "title": "Incognito Mode",
+    "category": "Privacy",
+    "difficulty": "Beginner",
+    "readTimeSec": 35,
+    "content": [
+      "Only prevents browser from saving history/cookies",
+      "Does NOT hide activity from ISP or Employer",
+      "Does NOT hide your IP address",
+      "Useful for logging into secondary accounts"
+    ],
+    "tags": ["browser", "myths", "usage"],
+    "source": "Chrome Support"
+  },
+  {
+    "id": "tokenization-ai",
+    "title": "Tokenization (AI)",
+    "category": "AI",
+    "difficulty": "Intermediate",
+    "readTimeSec": 50,
+    "content": [
+      "How LLMs read text",
+      "Words are broken into chunks (tokens)",
+      "1 token ≈ 0.75 words",
+      "Models have 'Context Windows' limited by token count"
+    ],
+    "tags": ["nlp", "data", "tech"],
+    "source": "OpenAI"
   }
 ]
